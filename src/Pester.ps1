@@ -518,14 +518,14 @@ function Invoke-Pester {
                     Get-Variable 'PesterOption' -Scope Local | Remove-Variable
                 }
 
-                if ($PSBoundParameters.ContainsKey('OutputFile')) {
-                    if ($null -ne $OutputFile -and 0 -lt @($OutputFile).Count){
-                        $Configuration.TestResult.Enabled = $true
-                        $Configuration.TestResult.OutputPath = $OutputFile
-                    }
+                # if ($PSBoundParameters.ContainsKey('OutputFile')) {
+                #     if ($null -ne $OutputFile -and 0 -lt @($OutputFile).Count){
+                #         $Configuration.TestResult.Enabled = $true
+                #         $Configuration.TestResult.OutputPath = $OutputFile
+                #     }
 
-                    Get-Variable 'OutputFile' -Scope Local | Remove-Variable
-                }
+                #     Get-Variable 'OutputFile' -Scope Local | Remove-Variable
+                # }
 
                 if ($PSBoundParameters.ContainsKey('OutputFormat')) {
                     if ($null -ne $OutputFormat -and 0 -lt @($OutputFormat).Count) {
