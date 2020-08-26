@@ -527,17 +527,17 @@ function Invoke-Pester {
                     Get-Variable 'OutputFile' -Scope Local | Remove-Variable
                 }
 
-                if ($PSBoundParameters.ContainsKey('OutputFormat')) {
-                    if ($null -ne $OutputFormat -and 0 -lt @($OutputFormat).Count) {
-                        if ("JUnitXml" -eq $OutputFormat) {
-                            throw "JUnitXml is currently not supported in Pester 5."
-                        }
+                # if ($PSBoundParameters.ContainsKey('OutputFormat')) {
+                #     if ($null -ne $OutputFormat -and 0 -lt @($OutputFormat).Count) {
+                #         if ("JUnitXml" -eq $OutputFormat) {
+                #             throw "JUnitXml is currently not supported in Pester 5."
+                #         }
 
-                        $Configuration.TestResult.OutputFormat = $OutputFormat
-                    }
+                #         $Configuration.TestResult.OutputFormat = $OutputFormat
+                #     }
 
-                    Get-Variable 'OutputFormat' -Scope Local | Remove-Variable
-                }
+                #     Get-Variable 'OutputFormat' -Scope Local | Remove-Variable
+                # }
 
                 if ($PSBoundParameters.ContainsKey('Show')) {
                     if ($null -ne $Show) {
