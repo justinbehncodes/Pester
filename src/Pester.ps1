@@ -518,26 +518,26 @@ function Invoke-Pester {
                     Get-Variable 'PesterOption' -Scope Local | Remove-Variable
                 }
 
-                # if ($PSBoundParameters.ContainsKey('OutputFile')) {
-                #     if ($null -ne $OutputFile -and 0 -lt @($OutputFile).Count){
-                #         $Configuration.TestResult.Enabled = $true
-                #         $Configuration.TestResult.OutputPath = $OutputFile
-                #     }
-
-                #     Get-Variable 'OutputFile' -Scope Local | Remove-Variable
-                # }
-
-                if ($PSBoundParameters.ContainsKey('OutputFormat')) {
-                    if ($null -ne $OutputFormat -and 0 -lt @($OutputFormat).Count) {
-                        if ("JUnitXml" -eq $OutputFormat) {
-                            throw "JUnitXml is currently not supported in Pester 5."
-                        }
-
-                        $Configuration.TestResult.OutputFormat = $OutputFormat
+                if ($PSBoundParameters.ContainsKey('OutputFile')) {
+                    if ($null -ne $OutputFile -and 0 -lt @($OutputFile).Count){
+                        $Configuration.TestResult.Enabled = $true
+                        $Configuration.TestResult.OutputPath = $OutputFile
                     }
 
-                    Get-Variable 'OutputFormat' -Scope Local | Remove-Variable
+                    Get-Variable 'OutputFile' -Scope Local | Remove-Variable
                 }
+
+                # if ($PSBoundParameters.ContainsKey('OutputFormat')) {
+                #     if ($null -ne $OutputFormat -and 0 -lt @($OutputFormat).Count) {
+                #         if ("JUnitXml" -eq $OutputFormat) {
+                #             throw "JUnitXml is currently not supported in Pester 5."
+                #         }
+
+                #         $Configuration.TestResult.OutputFormat = $OutputFormat
+                #     }
+
+                #     Get-Variable 'OutputFormat' -Scope Local | Remove-Variable
+                # }
 
                 if ($PSBoundParameters.ContainsKey('Show')) {
                     if ($null -ne $Show) {
